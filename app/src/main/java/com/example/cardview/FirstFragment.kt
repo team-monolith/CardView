@@ -1,12 +1,16 @@
 package com.example.cardview
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.graphics.Rect
+import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -19,8 +23,8 @@ class FirstFragment : Fragment() {
     var count=0//レイアウト追加管理用
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_first, container, false)
@@ -53,6 +57,26 @@ class FirstFragment : Fragment() {
 
         //レイアウトにタグをつけて後で扱いやすくする
         layout.setTag(count)
+
+
+        
+
+        view.findViewById<ImageView>(R.id.imageView1).setOnClickListener {
+            val iv=ImageView(context)
+            iv.setImageResource(R.drawable.example2)
+            val FriendImageDialog=AlertDialog.Builder(activity)
+            FriendImageDialog.setTitle("test")
+                    .setMessage("名刺イメージ")
+                    .setView(iv)
+                    .setPositiveButton("OK"){ _, _ ->
+                        Toast.makeText(context,"OK",Toast.LENGTH_SHORT).show()
+                    }
+                    .setNegativeButton("キャンセル",null)
+                    .show()
+            Toast.makeText(context,"test",Toast.LENGTH_SHORT).show()
+        }
+
+
 
 
         //カウントを追加する
