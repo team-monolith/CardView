@@ -37,6 +37,7 @@
                 android:adjustViewBounds="true"
                 android:cropToPadding="true"
                 android:scaleType="centerInside"
+                android:visibility="invisible"
                 app:srcCompat="@drawable/example" />
 
             <Space
@@ -53,6 +54,7 @@
                 android:adjustViewBounds="true"
                 android:cropToPadding="true"
                 android:scaleType="centerInside"
+                android:visibility="invisible"
                 app:srcCompat="@drawable/example" />
 
             <Space
@@ -69,6 +71,7 @@
                 android:adjustViewBounds="true"
                 android:cropToPadding="true"
                 android:scaleType="centerInside"
+                android:visibility="invisible"
                 app:srcCompat="@drawable/example" />
 
             <Space

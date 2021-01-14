@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.content.Context.WINDOW_SERVICE
 import android.graphics.Bitmap
 import android.graphics.Point
+import android.opengl.Visibility
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.*
@@ -80,10 +81,10 @@ class FirstFragment : Fragment() {
 
             //1,3,5番目のidを取得したいため、iを3で割った値を2倍して1を足す（1,3,5,1,3,5...となる）
             val card=(layout.findViewById<LinearLayout>(R.id.innnerlayout).getChildAt(i%3*2+1)as ImageView)
+            card.visibility=View.VISIBLE
             card.setImageBitmap(MyApp().CreateCardBitmap(list[i],resources))
             card.setOnClickListener{
             }
-
         }
 
     }
@@ -131,16 +132,6 @@ class FirstFragment : Fragment() {
                 5,
                 0,
                 "ゆーざーこめんと",
-                0))
-        list.add(MyApp.CARDDATA(78454,
-                "こんぱす",
-                testBitmapData(),
-                24,
-                471140,
-                1,
-                4,
-                2,
-                "ものりす",
                 0))
         list.add(MyApp.CARDDATA(78454,
                 "こんぱす",
