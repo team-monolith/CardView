@@ -47,47 +47,40 @@ class FirstFragment : Fragment() {
     @SuppressLint("CutPasteId")
     fun layout_add(view: View,list:List<MyApp.CARDDATA>) {
 
+        lateinit var layout:ConstraintLayout
+
         //スクロールビューのifを取得しビューグループに変換
         val SV: ViewGroup = view.findViewById<View>(R.id.sv) as ViewGroup
 
         //リストを削除する
         SV.removeAllViews()
 
+        //カウントをリセット
         count=0
 
-        //リストの件数分回す
-        for(i in list.indices step 3){
 
-            //レイアウトデータを読み込み追加する
-            getLayoutInflater().inflate(R.layout.cardpage, SV)
+        //リストの件数分ループさせる
+        for(i in list.indices){
 
-            //今回追加したレイアウトのデータを取得
-            val layout: ConstraintLayout = SV.getChildAt(count) as ConstraintLayout
+            //ページ追加処理
+            if(i%3==0){
+                //レイアウトデータを読み込み追加する
+                getLayoutInflater().inflate(R.layout.cardpage, SV)
 
-            //レイアウトにタグをつけて後で扱いやすくする
-            layout.setTag(count)
+                //今回追加したレイアウトのデータを取得
+                layout = SV.getChildAt(count) as ConstraintLayout
 
-            val card1=(layout.findViewById<LinearLayout>(R.id.innnerlayout).getChildAt(1)as ImageView)
+                //レイアウトにタグをつけて後で扱いやすくする
+                layout.tag = count
 
-            val card2=(layout.findViewById<LinearLayout>(R.id.innnerlayout).getChildAt(3)as ImageView)
-
-            val card3=(layout.findViewById<LinearLayout>(R.id.innnerlayout).getChildAt(5)as ImageView)
-
-            card1.setImageBitmap(MyApp().CreateCardBitmap(list[i],resources))
-
-            card2.setImageBitmap(MyApp().CreateCardBitmap(list[i+1],resources))
-
-            card3.setImageBitmap(MyApp().CreateCardBitmap(list[i+2],resources))
-
-            card1.setOnClickListener{
-            }
-            card2.setOnClickListener{
-            }
-            card3.setOnClickListener{
+                count++
             }
 
-            //カウントを追加する
-            count++
+            //1,3,5番目のidを取得したいため、iを3で割った値を2倍して1を足す（1,3,5,1,3,5...となる）
+            val card=(layout.findViewById<LinearLayout>(R.id.innnerlayout).getChildAt(i%3*2+1)as ImageView)
+            card.setImageBitmap(MyApp().CreateCardBitmap(list[i],resources))
+            card.setOnClickListener{
+            }
 
         }
 
