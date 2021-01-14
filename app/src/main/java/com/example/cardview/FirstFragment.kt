@@ -47,6 +47,7 @@ class FirstFragment : Fragment() {
     @SuppressLint("CutPasteId")
     fun layout_add(view: View,list:List<MyApp.CARDDATA>) {
 
+        //後程定義するためlateinit属性をつけています(nullableにするとnullチェックなど面倒なので）
         lateinit var layout:ConstraintLayout
 
         //スクロールビューのifを取得しビューグループに変換
@@ -63,6 +64,7 @@ class FirstFragment : Fragment() {
         for(i in list.indices){
 
             //ページ追加処理
+                //3件追加したら新しいページを追加する必要があるため(i%3)で計算をする
             if(i%3==0){
                 //レイアウトデータを読み込み追加する
                 getLayoutInflater().inflate(R.layout.cardpage, SV)
