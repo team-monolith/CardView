@@ -127,6 +127,36 @@ class FirstFragment : Fragment() {
                 2,
                 "植田がんばって",
                 0))
+        list.add(MyApp.CARDDATA(23553,
+                "ゆーざーねーむ",
+                testBitmapData(),
+                24,
+                471140,
+                0,
+                5,
+                0,
+                "ゆーざーこめんと",
+                0))
+        list.add(MyApp.CARDDATA(78454,
+                "こんぱす",
+                testBitmapData(),
+                24,
+                471140,
+                1,
+                4,
+                2,
+                "ものりす",
+                0))
+        list.add(MyApp.CARDDATA(78454,
+                "こんぱす",
+                testBitmapData(),
+                24,
+                471140,
+                1,
+                4,
+                2,
+                "ものりす",
+                0))
         return list
     }
 
