@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.*
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
@@ -55,6 +56,14 @@ class FirstFragment : Fragment() {
 
         //レイアウトにタグをつけて後で扱いやすくする
         layout.setTag(count)
+
+        (layout.findViewById<LinearLayout>(R.id.innnerlayout).getChildAt(1)as ImageView).setOnClickListener{
+        }
+        (layout.findViewById<LinearLayout>(R.id.innnerlayout).getChildAt(3)as ImageView).setOnClickListener{
+        }
+        (layout.findViewById<LinearLayout>(R.id.innnerlayout).getChildAt(5)as ImageView).setOnClickListener{
+        }
+
 
 
             view.setOnClickListener {
